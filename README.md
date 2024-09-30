@@ -2,6 +2,9 @@
 
 This project provides a traffic monitoring system using MongoDB as the database and PHP for the backend. The system fetches traffic data from the ANWB API and stores it in a MongoDB database, which can then be retrieved and displayed on a frontend using a map and table format.
 
+# Demonstration
+![Main Page](images/MainPage.png)
+
 ## Features
 
 - **Map Display**: Shows traffic incidents, jams, roadworks, and radars on a map using Leaflet.js.
@@ -79,9 +82,6 @@ Open your web browser and navigate to the following URL:
    ```
 
 This will open the main page of the application, from where you can navigate to the frontend and backend functionality. 
-
-In the following image, you can find the demonstration of the application.
-![Main Page](images/MainPage.png)
 
 ### File Structure
 

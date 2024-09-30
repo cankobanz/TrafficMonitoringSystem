@@ -10,6 +10,17 @@ export async function fetchTrafficData() {
     }
 }
 
+export async function startBackendInitially() {
+    try {
+        const response = await fetch(FETCH_DATA_URL);
+        const data = await response.text(); // fetch_data.php likely returns text
+        console.log('Data fetched from backend:', data);
+    } catch (error) {
+        console.error('Error fetching backend data:', error);
+    }
+}
+
+
 export function scheduleBackendUpdate(intervalMinutes = INTERVAL_MINUTES) { // Default to 5 minutes if no interval is provided
     const intervalMilliseconds = intervalMinutes * 60 * 1000; // Convert minutes to milliseconds
     setInterval(() => {

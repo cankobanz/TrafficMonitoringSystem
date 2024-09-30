@@ -1,4 +1,4 @@
-import { fetchTrafficData, scheduleBackendUpdate , filterDataByDate} from './data.js';
+import { fetchTrafficData, scheduleBackendUpdate , filterDataByDate, startBackendInitially} from './data.js';
 import { populateTable } from './table.js';
 import { initializeSlider } from './slider.js';
 import { initMap, updateMap } from './map.js';
@@ -24,6 +24,10 @@ async function loadTrafficData(selectedDate) {
 initializeSlider(loadTrafficData);
 
 // Load initial data on page load
-window.onload = () => loadTrafficData();
+window.onload = async () => {
+    await startBackendInitially()
+    loadTrafficData();  // Fetch initial data on page load
+};
+
 
 scheduleBackendUpdate();  // 5 minutes

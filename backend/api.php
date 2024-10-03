@@ -1,7 +1,9 @@
 <?php
+// This is the REST API file that builds the connection between Frontend and Backend.
 require 'database.php'; // Include the database connection file
 
-header("Content-Type: application/json");
+// Tells the client (frontend in this case) what to expect (json in this case)
+header("Content-Type: application/json"); 
 
 // Connect to MongoDB
 $database = connectToDatabase();
@@ -32,6 +34,6 @@ $incidents = iterator_to_array($cursor);
 echo json_encode($incidents);
 
 // Example usage:
-// http://localhost:8000/backend/api.php?time=2024-09-29T21:05:57.812Z  --> Fetch incidents with _uploaded_at = 2024-09-01
+// http://localhost:8000/backend/api.php?time=2024-09-30T10:32:58.166Z  --> Fetch incidents with _uploaded_at = 2024-09-01
 // http://localhost:8000/backend/api.php  --> Fetch the latest uploaded data
 ?>

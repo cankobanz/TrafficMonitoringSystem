@@ -1,6 +1,6 @@
 import { API_URL, FETCH_DATA_URL , INTERVAL_MINUTES } from './config.js';
 
-export async function fetchTrafficData() {
+export async function fetchDataFromDatabase() {
     try {
         const response = await fetch(API_URL); // Use centralized API URL
         return await response.json();
@@ -85,7 +85,7 @@ export function filterDataByDate(data, selectedDate) {
                 // If the road has filtered segments, add it to filtered roads
                 if (filteredSegments.length) {
                     filteredRoads.push({
-                        ...road,
+                        ...road, // copies all properties of the road object from the original data
                         segments: filteredSegments  // Attach the filtered segments
                     });
                 }

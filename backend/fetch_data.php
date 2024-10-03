@@ -14,7 +14,8 @@ function limitCollectionSize($collection, $maxSize = COLLECTION_SIZE_LIMIT) { //
         $excess = $count - $maxSize;
         // Remove older documents, sorted by natural order (_id)
         for ($i = 0; $i < $excess; $i++) {
-            $collection->findOneAndDelete([], ['sort' => ['_id' => 1]]);
+            //  sort documents based on their _uploaded_at values, find the oldest and delete it
+            $collection->findOneAndDelete([], ['sort' => ['_uploaded_at' => 1]]);
         }
     }
 }

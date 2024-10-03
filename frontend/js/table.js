@@ -2,6 +2,7 @@ import { formatDate, clearTable, capitalizeFirstLetterOfEachWord } from './helpe
 
 // Function to populate the table with traffic jams and roadworks data
 export function populateTable(data) {
+    // It looks for tbody (table body, rows of the table) inside an element with the ID trafficTable.
     const tableBody = document.querySelector('#trafficTable tbody');
     let rowIndex = 1;  // Initialize row index for numbering
 

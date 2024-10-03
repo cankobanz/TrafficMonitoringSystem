@@ -12,7 +12,7 @@ export function initializeSlider(onSliderChange) {
     selectedDateDisplay.textContent = formatDate(getFormattedDate(0));
 
     // Add event listener to handle slider changes
-    dateSlider.addEventListener('input', function () {
+    dateSlider.addEventListener('input', function () { // Anonymous Function
         const selectedDate = getFormattedDate(dateSlider.value);
         selectedDateDisplay.textContent = formatDate(selectedDate);
 

@@ -68,7 +68,7 @@ export function generatePopupContent(data) {
     }
 
     if (data.delay) {
-        content += `<strong>Delay:</strong> ${(data.delay / 60).toFixed(2)} minutes<br>`;
+        content += `<strong>Delay:</strong> ${(data.delay / 60)} minutes<br>`;
     }
 
     if (data.from) {

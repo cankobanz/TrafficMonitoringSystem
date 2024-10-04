@@ -1,5 +1,6 @@
 import { API_URL, FETCH_DATA_URL , INTERVAL_MINUTES } from './config.js';
 
+// Function to fetch data to frontend from my database
 export async function fetchDataFromDatabase() {
     try {
         const response = await fetch(API_URL); // Use centralized API URL
@@ -10,6 +11,7 @@ export async function fetchDataFromDatabase() {
     }
 }
 
+// Function to fetch data to database from ANWB api in case it is empty or not up to date
 export async function startBackendInitially() {
     try {
         const response = await fetch(FETCH_DATA_URL);
@@ -20,7 +22,7 @@ export async function startBackendInitially() {
     }
 }
 
-
+// Function to trigger backend to update the database every 5 minutes
 export function scheduleBackendUpdate(intervalMinutes = INTERVAL_MINUTES) { // Default to 5 minutes if no interval is provided
     const intervalMilliseconds = intervalMinutes * 60 * 1000; // Convert minutes to milliseconds
     setInterval(() => {

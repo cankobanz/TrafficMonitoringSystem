@@ -1,15 +1,20 @@
 import { formatDate, getFormattedDate } from './helpers.js';
 
+const dateSlider = document.getElementById('dateSlider');
+const selectedDateDisplay = document.getElementById('selectedDate');
+
 // Function to initialize the slider
-export function initializeSlider(onSliderChange) {
-    const dateSlider = document.getElementById('dateSlider');
-    const selectedDateDisplay = document.getElementById('selectedDate');
+export function initializeSlider() {
 
     // Set up slider properties
     const maxDaysInFuture = 15;
     dateSlider.max = maxDaysInFuture;
     dateSlider.value = 0; // Default to today's date
     selectedDateDisplay.textContent = formatDate(getFormattedDate(0));
+}
+
+// Function to update the slider
+export function updateSlider(onSliderChange) {
 
     // Add event listener to handle slider changes
     dateSlider.addEventListener('input', function () { // Anonymous Function

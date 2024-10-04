@@ -1,6 +1,6 @@
 import { fetchDataFromDatabase, scheduleBackendUpdate , filterDataByDate, startBackendInitially} from './data.js';
 import { populateTable } from './table.js';
-import { initializeSlider } from './slider.js';
+import { initializeSlider, updateSlider} from './slider.js';
 import { initMap, updateMap } from './map.js';
 import { getFormattedDate } from './helpers.js';
 
@@ -21,7 +21,8 @@ async function loadTrafficData(selectedDate) {
 }
 
 // Initialize slider to load data on change
-initializeSlider(loadTrafficData);
+initializeSlider();
+updateSlider(loadTrafficData)
 
 // Load initial data on page load
 window.onload = async () => { // Arrow function
@@ -29,6 +30,5 @@ window.onload = async () => { // Arrow function
     await startBackendInitially()
     loadTrafficData();  // Fetch initial data on page load
 };
-
 
 scheduleBackendUpdate();  // 5 minutes
